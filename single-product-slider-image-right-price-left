@@ -1,0 +1,486 @@
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+<!-- jQuery (required for Owl Carousel) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<section id="{{ section.id }}" class="{{ section.settings.addclass }}" style="background-color:{{ section.settings.addbgcolor }}">
+<div class="container page-width">
+   <div class="flex-box-slider">
+      <div>
+        <h6>{{ section.settings.subheading }}</h6>
+         <h2>{{ section.settings.title }}</h2>
+        <p>{{ section.settings.text1 }}</p>
+     </div>  
+      <div class="owl-carousel owl-theme">
+         {% for product in section.settings.collection.products %}
+         <div class="item">
+            <div class="main-upper">
+               
+               <div class="conts">
+                  <h4>
+                     <a href="{{ product.url }}" style="color:#000">{{ product.title | truncate: 50 }}</a>
+                  </h4>
+                 <p>{{ product.metafields.custom.home_page_description1 | metafield_tag }}</p>
+               </div>
+               <div class="custom-compare"> 
+                  <p class="main-price mw-price">{{ product.price | money_with_currency }}</p>
+               </div>
+              <a class="ghasvdghas" href="{{ product.url }}">Order now</a>
+            </div>
+           <div class="image">
+                  <a href="{{ product.url }}">
+                     <img class="product__img" src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}" />
+                    <span class="et_overlay"></span>
+                  </a>
+               </div>
+         </div>
+         {% endfor %}
+      </div>
+      
+      
+    
+   </div>
+</div>
+
+</section>
+
+<script>
+  $(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      dots: false,
+      navText: [
+        '<img class="sdfsdsd" src="https://cdn.shopify.com/s/files/1/0932/7054/0613/files/right-arrow-svgrepo-com_1.svg?v=1742550392" alt="Prev">',
+        '<img class="sdfsdsd" src="https://cdn.shopify.com/s/files/1/0932/7054/0613/files/right-arrow-svgrepo-com.svg?v=1742549857" alt="Next">'
+      ],
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 1
+        },
+        1000: {
+          items: 1
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  
+#hr-{{ section.id }} {
+      background-color: #8c51fe;
+      width: 100px;
+      height: 5px;
+      margin: 0px auto;
+  }
+
+ .owl-carousel {
+    margin-top: 4%;
+}
+
+
+ .flex-box-slider h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.view-all {
+   text-align: center;
+   margin-top: 20px;
+}
+
+.btn-view-all {
+   display: inline-block;
+   padding: 10px 20px;
+   background-color: #000; / Change color as needed /
+   color: #fff;
+   text-decoration: none;
+   border-radius: 5px;
+   transition: background-color 0.3s ease;
+}
+
+.btn-view-all:hover {
+   background-color: #FCAC19; / Darker shade for hover effect /
+}
+
+  .owl-nav {
+   position: absolute;
+   top: 50%;
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   transform: translateY(-50%);
+   pointer-events: none; / Prevent hover effects on the whole area /
+}
+
+.owl-prev, .owl-next {
+   background-color: rgba(255, 255, 255, 0.8);
+   color: #000;
+   padding: 10px;
+   border-radius: 50%;
+   cursor: pointer;
+   pointer-events: auto; / Enable hover effects for buttons /
+   transition: background-color 0.3s;
+}
+
+.owl-prev:hover, .owl-next:hover {
+   background-color: rgba(255, 255, 255, 1);
+}
+
+.owl-prev {
+   margin-left: 10px;
+}
+
+.owl-next {
+   margin-right: 10px;
+}
+.owl-carousel .owl-item img {
+    height: 600px;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+  .owl-item h4 {
+    margin: 0;
+    margin-top: 10px;
+}
+  .conts h4 a {
+    text-decoration: none;
+    font-size: 70px!important;
+    font-weight: 400;
+    text-align: left;
+    display: block;
+    line-height: 65px;
+}
+  p.main-price {
+    margin: 0;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #066299;
+}
+  .flex-box-slider h6 {
+    text-align: center;
+    font-size: 13px;
+    color: #066299;
+    margin-bottom: -22px!important;
+}
+  .flex-box-slider p {
+    text-align: center;
+    / margin: 0px; /
+}
+  .item {
+    PADDING: 5PX;
+}
+  
+   .flex-box-slider h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: -15px;
+}
+  .winterclass {
+    margin-top: 60px;
+}
+  .view-all {
+    text-align: center;
+    margin-top: 40px;
+}
+  .owl-nav {
+    position: absolute;
+    top: 39%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+  .owl-theme .owl-nav [class*=owl-] {
+    color: #FFF;
+    font-size: 14px;
+    margin: 5px;
+    padding: 4px 7px;
+    background: #D6D6D6;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-left: -20px;
+    padding-bottom: 1px !important;
+}
+  .owl-next {
+    margin-right: -25px!important;
+}
+  .owl-theme .owl-nav [class*=owl-] {
+    color: #FFF;
+    font-size: 14px;
+    margin: 5px;
+    padding: 4px 7px;
+    background: #FDAB05;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-left: -20px;
+    padding-bottom: 1px !important;
+}
+  .summerclass {
+    margin-top: 60px;
+}
+ 
+  .owl-carousel.owl-theme.owl-loaded.owl-drag {
+    margin-top: 23px;
+} 
+  .item {
+    display: flex;
+} 
+  .main-upper {
+    width: 50%;
+}
+  .main-upper {
+    padding-right: 74px;
+    width: 50%;
+}
+a.ghasvdghas {
+    padding-top: 12px;
+    background-color: #015e5f;
+    border-radius: 50px;
+    text-transform: uppercase;
+    padding-inline: 60px;
+    padding-bottom: 15px;
+    color: white;
+    text-decoration: none;
+}
+  .image {
+      width: 50%;
+  }
+  .flex-box-slider p {
+    text-align: left;
+    font-size: 24px;
+    line-height: 28px;
+}
+  a.ghasvdghas {
+    position: absolute;
+    bottom: 1%;
+}
+  p.main-price.mw-price {
+    display: none;
+}
+  .jikrsdhgterui {
+    padding-top: 27px;
+    padding-bottom: 40px;
+}
+  .flex-box-slider h2 {
+    text-align: left;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 45px!important;
+}
+  .flex-box-slider p {
+    text-align: left;
+    font-size: 24px;
+    line-height: 28px;
+    color: black;
+}
+  img.sdfsdsd {
+    width: 42%;
+}
+  .owl-nav {
+    position: absolute;
+    top: -14%;
+    /* width: 100%; */
+    /* display: flex; */
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+  button.owl-next {
+    position: absolute;
+    right: 0%;
+}
+  button.owl-prev {
+    position: absolute;
+    left: 95%;
+}
+  .owl-theme .owl-nav [class*=owl-]:hover {
+    background: #86979100;
+    color: #FFF;
+    text-decoration: none;
+}
+  @media only screen and (max-width: 767px) {
+  .owl-prev {
+    margin-left: 0px!important;
+}
+    .owl-next {
+    position: absolute;
+    right: 25px;
+}
+    .card1 .front img, .card1 .front video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+    .item {
+    display: flex;
+    flex-direction: column-reverse;
+}
+    .main-upper {
+    padding-right: 0px;
+    width: 100%;
+}
+    .image {
+    width: 100%;
+}
+    .owl-carousel .owl-item img {
+    height: auto;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+    .conts h4 a {
+    text-decoration: none;
+    font-size: 31px!important;
+    font-weight: 400;
+    text-align: left;
+    display: block;
+    line-height: 42px;
+    margin-top: 15px;
+}
+    .flex-box-slider p {
+    text-align: left;
+    font-size: 18px;
+    line-height: 22px;
+    color: black;
+}
+    .main-upper {
+    padding-right: 0px;
+    width: 100%;
+    margin-bottom: 25px!important;
+}
+    a.ghasvdghas {
+    position: unset;
+    bottom: -7%;
+   
+}
+    .metafield-rich_text_field {
+    margin-bottom: 41px;
+}
+    button.owl-prev {
+    position: absolute;
+    left: 82%;
+}
+    
+  }
+</style>
+
+
+{% schema %}
+  {
+    "name": "owl slide",
+    "settings": [
+      {
+      "type": "color",
+      "id": "addbgcolor",
+      "label": "Background color"
+    },
+      {
+      "type": "textarea",
+      "id": "title",
+      "label": "Heading",
+      "default": "Collection list"
+      },
+      {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Sub Heading"
+      },
+      {
+      "type": "textarea",
+      "id": "text1",
+      "label": "description"
+      },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+      {
+       "type": "url",
+       "id": "view_all_url",
+       "label": "View All URL"
+    },
+    {
+       "type": "text",
+       "id": "view_all_text",
+       "label": "View All Button Text",
+       "default": "View All"
+    },
+       {
+       "type": "text",
+       "id": "addclass",
+       "label": "addclass"
+    },
+      {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Limit products",
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "default": 7
+    }
+    ],
+  "blocks": [
+    {
+      "type": "custom",
+      "name": "image-picker",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Title",
+          "label": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider-image",
+          "label": "slider Image"
+        },
+        {
+          "type": "url",
+          "id": "btn-url",
+          "label": "BTN URL"
+        },
+        {
+          "type": "text",
+          "id": "btn-text",
+          "label": "BTN Text"
+        }
+      ]
+    }
+  ],
+     "presets": [
+    {
+      "name": "owl-slider",
+      "category": "Custom"
+       }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
